@@ -1,4 +1,4 @@
-import { render, screen } from "@testing-library/react-native";
+import { fireEvent, render, screen } from "@testing-library/react-native";
 import { SelectList } from "@components/SelectList";
 
 describe("Component: SelectList", () => {
@@ -16,9 +16,7 @@ describe("Component: SelectList", () => {
       />
     );
 
-    const selectedCity = screen.getByText("Campo", { exact: false });
-    // Regex without case sensitive
-    // const selectedCity = screen.getByText(/campo/i);
-    console.log(selectedCity);
+    const selectedCity = screen.getByText(/campo/i);
+    fireEvent.press(selectedCity);
   });
 });
