@@ -1,9 +1,11 @@
 import { renderHook } from "@testing-library/react-native";
+
+import { CityProvider } from "@contexts/CityContext";
 import { useCity } from "@hooks/useCity";
 
 describe("Context: CityContext", () => {
   it("should be change selected city", () => {
-    const { result } = renderHook(() => useCity());
-    console.log(result.current.city);
+    const { result } = renderHook(() => useCity(), { wrapper: CityProvider });
+    console.log(result.current);
   });
 });
