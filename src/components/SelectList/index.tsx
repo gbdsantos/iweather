@@ -19,6 +19,7 @@ export function SelectList(props: Props) {
       <Input
         placeholder={props.placeholder}
         onChangeText={props.onChange}
+        testID="search-input"
         isLoading={props.isLoading}
         value={props.value}
       />
