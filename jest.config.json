@@ -9,7 +9,8 @@
   ],
   "testPathIgnorePatterns": [
     "./__tests__/mocks",
-    "./__tests__/utils"
+    "./__tests__/utils",
+    "./__tests__/coverage"
   ],
   "transformIgnorePatterns": [
     "node_modules/(?!((jest-)?react-native|@react-native(-community)?)|expo(nent)?|@expo(nent)?/.*|@expo-google-fonts/.*|react-navigation|@react-navigation/.*|@unimodules/.*|unimodules|sentry-expo|native-base|react-native-svg)"
@@ -25,6 +26,8 @@
   "coveragePathIgnorePatterns": [
     "./src/@types",
     ".src/styles",
-    ".src/libs/dayjs/"
-  ]
+    ".src/libs/dayjs/",
+    "__tests__/coverage"
+  ],
+  "coverageDirectory": "./__tests__/coverage"
 }
