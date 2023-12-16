@@ -85,6 +85,8 @@ eas build -p android --profile preview
 eas build -p android --profile production --message "first production deploy"
 ```
 
+- [Google Play Console](https://play.google.com/intl/pt-BR/console/about "Google Play Console")
+
 <br>
 
 ## ⚖️ Licença
