@@ -74,6 +74,9 @@ eas logout
 
 # Criar o projeto no EAS
 eas build:configure
+
+# Gerar APK local com EAS (android)
+eas build -p android --profile preview --local
 ```
 
 <br>
