@@ -53,10 +53,16 @@ npx expo run:android
 
 Wiki de comandos executados e bibliotecas utilizadas.
 
+- **Dependências**
+
 ```Bash
 # Instalar EAS-CLI (Expo Application Services)
 npm install -g eas-cli
+```
 
+- **EAS-CLI**
+
+```Bash
 # Verificar se está logado
 eas whoami
 
@@ -65,6 +71,9 @@ eas login
 
 # Deslogar do EAS (Expo Application Services)
 eas logout
+
+# Criar o projeto no EAS
+eas build:configure
 ```
 
 <br>
