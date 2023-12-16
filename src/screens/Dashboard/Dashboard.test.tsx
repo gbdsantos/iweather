@@ -1,4 +1,11 @@
-import { render, screen, waitFor, waitForElementToBeRemoved } from "@__tests__/utils/customRender";
+import {
+  act,
+  fireEvent,
+  render,
+  screen,
+  waitFor,
+  waitForElementToBeRemoved
+} from "@__tests__/utils/customRender";
 import { Dashboard } from "@screens/Dashboard";
 import { api } from "@services/api";
 import { mockWeatherAPIResponse } from "@__tests__/mocks/api/mockWeatherAPIResponse";
@@ -11,7 +18,7 @@ describe("Screen: Dashboard", () => {
 
     const city = {
       id: '1',
-      name: 'Rio do Sul',
+      name: 'Rio do Sul, BR',
       latitude: 123,
       longitude: 456
     }
@@ -28,7 +35,7 @@ describe("Screen: Dashboard", () => {
   it("should be another selected weather city.", async () => {
     const city = {
       id: '1',
-      name: 'Rio do Sul',
+      name: 'Rio do Sul, BR',
       latitude: 123,
       longitude: 456
     }
@@ -41,13 +48,25 @@ describe("Screen: Dashboard", () => {
     * 3 - Searches for weather/climate information for the new selected city.
     **/
     jest.spyOn(api, 'get')
-      .mockRejectedValueOnce({ data: mockWeatherAPIResponse })
-      .mockRejectedValueOnce({ data: mockCityAPIResponse })
-      .mockRejectedValueOnce({ data: mockWeatherAPIResponse })
+      .mockResolvedValueOnce({ data: mockWeatherAPIResponse })
+      .mockResolvedValueOnce({ data: mockCityAPIResponse })
+      .mockResolvedValueOnce({ data: mockWeatherAPIResponse })
 
     render(<Dashboard />);
 
     await waitForElementToBeRemoved(() => screen.queryByTestId("loading"));
 
+    const cityName = 'São Paulo';
+
+    await waitFor(() => act(() => {
+      const search = screen.getByTestId("search-input");
+      fireEvent.changeText(search, cityName);
+    }));
+
+    await waitFor(() => act(() => {
+      fireEvent.press(screen.getByText(cityName, { exact: false }));
+    }));
+
+    expect(screen.getByText(cityName, { exact: false })).toBeTruthy();
   });
 }); 
