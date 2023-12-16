@@ -1,4 +1,4 @@
-import { render, screen, waitFor } from "@__tests__/utils/customRender";
+import { render, screen, waitFor, waitForElementToBeRemoved } from "@__tests__/utils/customRender";
 import { Dashboard } from "@screens/Dashboard";
 import { api } from "@services/api";
 import { mockWeatherAPIResponse } from "@__tests__/mocks/api/mockWeatherAPIResponse";
@@ -33,6 +33,8 @@ describe("Screen: Dashboard", () => {
       longitude: 456
     }
 
+    await saveStorageCity(city);
+
     /** 
     * 1 - Search for weather/climate information in the selected city..
     * 2 - Search for city information.
@@ -43,6 +45,9 @@ describe("Screen: Dashboard", () => {
       .mockRejectedValueOnce({ data: mockCityAPIResponse })
       .mockRejectedValueOnce({ data: mockWeatherAPIResponse })
 
-    await saveStorageCity(city);
+    render(<Dashboard />);
+
+    await waitForElementToBeRemoved(() => screen.queryByTestId("loading"));
+
   });
 }); 
