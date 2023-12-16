@@ -54,13 +54,17 @@ npx expo run:android
 Executed commands and used librarys.
 
 ```Bash
-# Install EAS-CLI (Expo Applications Services)
+# Install EAS-CLI (Expo Application Services)
 npm install -g eas-cli
 
 # Verify if is logged
 eas whoami
 
-#
+# Login in to EAS (Expo Application Services)
+eas login
+
+# Logout in to EAS (Expo Application Services)
+eas logout
 ```
 
 <br>
