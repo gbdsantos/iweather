@@ -80,6 +80,9 @@ eas build -p android --profile preview --local
 
 # Generate remote APK with EAS (android)
 eas build -p android --profile preview
+
+# Generate production remote APK with EAS (android)
+eas build -p android --profile production --message "first production deploy"
 ```
 
 <br>
