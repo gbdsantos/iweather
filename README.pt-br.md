@@ -87,6 +87,20 @@ eas build -p android --profile production --message "first production deploy"
 
 - [Google Play Console](https://play.google.com/intl/pt-BR/console/about "Google Play Console")
 
+<details>
+<summary><strong>Build iOS</strong></summary> 
+
+<br />
+
+```Bash
+# Instalar Fastlane no macOS
+brew install fastlane
+```
+
+- 🇺🇸 [Primeiros passos com fastlane para iOS](https://docs.fastlane.tools/getting-started/ios/setup "Primeiros passos com fastlane para iOS")
+
+</details>
+
 <br>
 
 ## ⚖️ Licença
