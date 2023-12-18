@@ -96,8 +96,11 @@ eas build -p android --profile production --message "first production deploy"
 # Install Fastlane on macOS
 brew install fastlane
 
-# Generate .IPA
+# Generate local IPA with EAS
 npx eas build -p ios --profile preview --local
+
+# Generate remote IPA with EAS
+npx eas build -p ios --profile production
 ```
 
 - [Getting started with fastlane for iOS](https://docs.fastlane.tools/getting-started/ios/setup "Getting started with fastlane for iOS")
