@@ -1,6 +1,6 @@
 {
   "preset": "jest-expo",
-  "bail": "true",
+  "bail": 1,
   "setupFilesAfterEnv": [
     "@testing-library/react-native/extend-expect"
   ],
