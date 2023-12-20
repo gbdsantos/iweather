@@ -33,3 +33,15 @@ jobs:
     steps:
       - name: Checkout repository
         uses: actions/checkout@v3  
+      
+      - name: Setup Node
+        use: actions/setup-node@v3
+        with:
+          node-version: 18.x
+        
+      - name: Setup EAS
+        uses: expo/expo-gitub-action@v8
+        width:
+          eas-version: latest
+          packager: npm
+          token: 
